@@ -5,31 +5,36 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
-
 int main()
 {
 	WSADATA wsaData;
 	struct sockaddr_in server;
 	SOCKET sock;
-	char buf[32];
+	char buf[256];
 	char *deststr = nullptr;
-
-	if (__argc != 2) 
+	unsigned int **addrptr;
+	
+	// winsock2の初期化
+	if (WSAStartup(MAKEWORD(2, 0), &wsaData)!=0)
 	{
-		printf("Usage : %s dest\n", __argv[0]);
+		printf("ソケット初期化：失敗\n");
 		return 1;
 	}
-
-	// winsock2の初期化
-	WSAStartup(MAKEWORD(2, 0), &wsaData);
 
 	// ソケットの作成
 	sock = socket(AF_INET, SOCK_STREAM, 0);
 
+	if (sock == INVALID_SOCKET)
+	{
+		printf("sock : %d\n", WSAGetLastError());
+		return 1;
+	}
+
 	// 接続先指定用構造体の準備
 	server.sin_family = AF_INET;
 	server.sin_port = htons(12345);
-	server.sin_addr.S_un.S_addr = inet_addr(deststr);
+
+	server.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
 
 	if (server.sin_addr.S_un.S_addr == 0xffffffff) 
 	{
@@ -38,10 +43,17 @@ int main()
 		host = gethostbyname(deststr);
 		if (host == NULL) 
 		{
+			if (WSAGetLastError() == WSAHOST_NOT_FOUND)
+			{
+					printf("host not found : %s\n", deststr);
+			}
 			return 1;
 		}
+
+
 		server.sin_addr.S_un.S_addr =
 			*(unsigned int *)host->h_addr_list[0];
+
 	}
 
 
@@ -55,7 +67,23 @@ int main()
 		memset(buf, 0, sizeof(buf));
 		int n = recv(sock, buf, sizeof(buf), 0);
 
-		printf("%d, %s\n", n, buf);
+		//char buf[256];
+		//while (true)
+		//{
+		//	memset(&buf, 0, sizeof(buf));
+
+		//	scanf_s("%s", buf);
+
+		//	// 文字送信
+		//	n = send(sock, buf, 256, 0);
+
+		//}
+
+
+		if (n > 0)
+		{
+			printf("%d, %s\n", n, buf);
+		}
 	}
 	// winsock2の終了処理
 	WSACleanup();
