@@ -1,9 +1,12 @@
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 #include <Winsock2.h>
 #include <WS2tcpip.h>
+#include <iostream>
 
 #pragma comment(lib, "ws2_32.lib")
 
-#define printf
+#define P(X) printf(X)
+
 
 int main()
 {
@@ -14,6 +17,7 @@ int main()
 	int len;
 	SOCKET sock;
 	int n;
+	BOOL yes = 1;
 
 	// winsock2の初期化
 	if (WSAStartup(MAKEWORD(2, 0), &wsaData) != 0)
@@ -33,11 +37,16 @@ int main()
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(12345);
 	addr.sin_addr.S_un.S_addr = INADDR_ANY;
+
+	setsockopt(sock0,
+		SOL_SOCKET, SO_REUSEADDR, (const char *)&yes, sizeof(yes));
+
+
 	//bind(sock0, (struct sockaddr *)&addr, sizeof(addr));
 
 	if (bind(sock0, (struct sockaddr *)&addr, sizeof(addr)) != 0) 
 	{
-		printf("bind : %d\n", WSAGetLastError());
+		P("bind : %d\n", WSAGetLastError());
 		return 1;
 	}
 
@@ -48,13 +57,18 @@ int main()
 	}
 
 	// TCPクライアントからの接続要求を待てる状態にする
-	//listen(sock0, 5);
+	listen(sock0, 5);
 
 	while (1) 
 	{
 		// TCPクライアントからの接続要求を受け付ける
 		len = sizeof(client);
 		sock = accept(sock0, (struct sockaddr *)&client, &len);
+
+
+		printf("accepted connection from %s, port=%d\n",
+			inet_ntoa(client.sin_addr), ntohs(client.sin_port));
+
 
 		if (sock == INVALID_SOCKET) 
 		{
