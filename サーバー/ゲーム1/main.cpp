@@ -5,8 +5,6 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
-#define P(X) printf(X)
-
 
 int main()
 {
@@ -38,15 +36,11 @@ int main()
 	addr.sin_port = htons(12345);
 	addr.sin_addr.S_un.S_addr = INADDR_ANY;
 
-	setsockopt(sock0,
-		SOL_SOCKET, SO_REUSEADDR, (const char *)&yes, sizeof(yes));
-
-
-	//bind(sock0, (struct sockaddr *)&addr, sizeof(addr));
+	setsockopt(sock0, SOL_SOCKET, SO_REUSEADDR, (const char *)&yes, sizeof(yes));
 
 	if (bind(sock0, (struct sockaddr *)&addr, sizeof(addr)) != 0) 
 	{
-		P("bind : %d\n", WSAGetLastError());
+		printf("bind : %d\n", WSAGetLastError());
 		return 1;
 	}
 
