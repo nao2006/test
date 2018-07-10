@@ -1,3 +1,5 @@
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 #include <Winsock2.h>
 #include <WS2tcpip.h>
 
@@ -14,6 +16,7 @@ int main()
 	int len;
 	SOCKET sock;
 	int n;
+	BOOL yes = 1;
 
 	// winsock2ÇÃèâä˙âª
 	if (WSAStartup(MAKEWORD(2, 0), &wsaData) != 0)
@@ -33,7 +36,8 @@ int main()
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(12345);
 	addr.sin_addr.S_un.S_addr = INADDR_ANY;
-	//bind(sock0, (struct sockaddr *)&addr, sizeof(addr));
+	
+	setsockopt(sock0, SOL_SOCKET, SO_REUSEADDR, (const char *)&yes, sizeof(yes));
 
 	if (bind(sock0, (struct sockaddr *)&addr, sizeof(addr)) != 0) 
 	{
