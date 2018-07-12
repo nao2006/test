@@ -1,6 +1,6 @@
 ﻿  main.cpp
-c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(81): warning C4473: 'scanf_s': 書式文字列として渡された引数が不足しています
-  c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(81): note: プレースホルダーとそのパラメーターには 2 の可変個引数が必要ですが、1 が指定されています。
-  c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(81): note: 不足している可変個引数 2 が書式文字列 '%s' に必要です
-  c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(81): note: この引数はバッファー サイズとして使用されます
-  ゲーム1.vcxproj -> C:\Users\1601277\Documents\GitHub\test\サーバー\x64\Debug\ゲーム1.exe
+c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(87): warning C4473: 'scanf_s': 書式文字列として渡された引数が不足しています
+  c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(87): note: プレースホルダーとそのパラメーターには 2 の可変個引数が必要ですが、1 が指定されています。
+  c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(87): note: 不足している可変個引数 2 が書式文字列 '%s' に必要です
+  c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(87): note: この引数はバッファー サイズとして使用されます
+c:\users\1601277\documents\github\test\サーバー\ゲーム1\main.cpp(40): error C4700: 初期化されていないローカル変数 'sock' が使用されます

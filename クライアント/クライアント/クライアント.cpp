@@ -67,17 +67,58 @@ int main()
 		memset(buf, 0, sizeof(buf));
 		int n = recv(sock, buf, sizeof(buf), 0);
 
-		//char buf[256];
-		//while (true)
-		//{
-		//	memset(&buf, 0, sizeof(buf));
+		char buf[256];
+		while (true)
+		{
+			memset(&buf, 0, sizeof(buf));
 
-		//	scanf_s("%s", buf);
+			scanf_s("%s", buf);
 
-		//	// •¶š‘—M
-		//	n = send(sock, buf, 256, 0);
+			// •¶š‘—M
+			n = send(sock, buf, 256, 0);
 
-		//}
+		}
+
+		if (n < 1)
+		{
+			if (WSAGetLastError() == WSAEWOULDBLOCK)
+			{
+				//‚Ü‚¾‚Å‚«‚È‚¢‚æ
+				printf("‚¾‚ß\n");
+			}
+
+			else
+			{
+				printf("recevied data\n");
+				printf("%s\n", buf);
+				break;
+			}
+
+			//‚Æ‚è‚ ‚¦‚¸ˆêˆê•b‘Ò‚¿
+			Sleep(1000);
+			printf("send : %d\n", WSAGetLastError());
+			break;
+		}
+		if (n < 1)
+		{
+			if (WSAGetLastError() == WSAEWOULDBLOCK)
+			{
+				//‚Ü‚¾‚Å‚«‚È‚¢‚æ
+				printf("‚¾‚ß\n");
+			}
+
+			else
+			{
+				printf("recevied data\n");
+				printf("%s\n", buf);
+				break;
+			}
+
+			//‚Æ‚è‚ ‚¦‚¸ˆêˆê•b‘Ò‚¿
+			Sleep(1000);
+			printf("send : %d\n", WSAGetLastError());
+			break;
+		}
 
 
 		if (n > 0)

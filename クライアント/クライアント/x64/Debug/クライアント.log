@@ -1,7 +1,7 @@
 ﻿  クライアント.cpp
-c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(76): warning C4473: 'scanf_s': 書式文字列として渡された引数が不足しています
-  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(76): note: プレースホルダーとそのパラメーターには 2 の可変個引数が必要ですが、1 が指定されています。
-  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(76): note: 不足している可変個引数 2 が書式文字列 '%s' に必要です
-  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(76): note: この引数はバッファー サイズとして使用されます
-c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(16): warning C4101: 'addrptr': ローカル変数は 1 度も使われていません。
+c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(75): warning C4473: 'scanf_s': 書式文字列として渡された引数が不足しています
+  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(75): note: プレースホルダーとそのパラメーターには 2 の可変個引数が必要ですが、1 が指定されています。
+  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(75): note: 不足している可変個引数 2 が書式文字列 '%s' に必要です
+  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(75): note: この引数はバッファー サイズとして使用されます
+c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(15): warning C4101: 'addrptr': ローカル変数は 1 度も使われていません。
   クライアント.vcxproj -> C:\Users\1601277\Documents\GitHub\test\クライアント\x64\Debug\クライアント.exe
