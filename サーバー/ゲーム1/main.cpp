@@ -13,7 +13,7 @@ int main()
 	struct sockaddr_in addr;
 	struct sockaddr_in client;
 	int len;
-	SOCKET sock;
+	SOCKET sock = INVALID_SOCKET;
 	int n;
 	BOOL yes = 1;
 
@@ -60,7 +60,7 @@ int main()
 	}
 
 	// TCPクライアントからの接続要求を待てる状態にする
-	listen(sock0, 5);
+	//listen(sock0, 5);
 
 	while (1) 
 	{

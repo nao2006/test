@@ -66,18 +66,16 @@ int main()
 		// サーバからデータを受信
 		memset(buf, 0, sizeof(buf));
 		int n = recv(sock, buf, sizeof(buf), 0);
-
-		char buf[256];
-		while (true)
+		if (n > 0)
 		{
-			memset(&buf, 0, sizeof(buf));
-
-			scanf_s("%s", buf);
-
-			// 文字送信
-			n = send(sock, buf, 256, 0);
-
+			printf("%s", buf);
 		}
+
+		memset(buf, 0, sizeof(buf));
+		scanf_s("%s", buf);
+
+		// 文字送信
+		n = send(sock, buf, 256, 0);
 
 		if (n < 1)
 		{
@@ -87,40 +85,18 @@ int main()
 				printf("だめ\n");
 			}
 
-			else
 			{
 				printf("recevied data\n");
 				printf("%s\n", buf);
-				break;
+				
 			}
 
 			//とりあえず一一秒待ち
 			Sleep(1000);
 			printf("send : %d\n", WSAGetLastError());
-			break;
+			
 		}
-		if (n < 1)
-		{
-			if (WSAGetLastError() == WSAEWOULDBLOCK)
-			{
-				//まだできないよ
-				printf("だめ\n");
-			}
-
-			else
-			{
-				printf("recevied data\n");
-				printf("%s\n", buf);
-				break;
-			}
-
-			//とりあえず一一秒待ち
-			Sleep(1000);
-			printf("send : %d\n", WSAGetLastError());
-			break;
-		}
-
-
+		
 		if (n > 0)
 		{
 			printf("%d, %s\n", n, buf);
