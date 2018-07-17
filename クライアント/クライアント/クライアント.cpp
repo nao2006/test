@@ -9,11 +9,13 @@ int main()
 {
 	WSADATA wsaData;
 	struct sockaddr_in server;
-	SOCKET sock;
+	SOCKET sock = INVALID_SOCKET;
 	char buf[256];
 	char *deststr = nullptr;
 	unsigned int **addrptr;
-	
+	u_long val = 1;
+	ioctlsocket(sock, FIONBIO, &val);
+
 	// winsock2ÇÃèâä˙âª
 	if (WSAStartup(MAKEWORD(2, 0), &wsaData)!=0)
 	{
@@ -43,10 +45,10 @@ int main()
 		host = gethostbyname(deststr);
 		if (host == NULL) 
 		{
-			if (WSAGetLastError() == WSAHOST_NOT_FOUND)
-			{
+			WSAGetLastError() == WSAHOST_NOT_FOUND;
+
 					printf("host not found : %s\n", deststr);
-			}
+			
 			return 1;
 		}
 
@@ -84,11 +86,10 @@ int main()
 				//Ç‹ÇæÇ≈Ç´Ç»Ç¢ÇÊ
 				printf("ÇæÇﬂ\n");
 			}
-
+			else
 			{
 				printf("recevied data\n");
-				printf("%s\n", buf);
-				
+				printf("%s\n", buf);	
 			}
 
 			//Ç∆ÇËÇ†Ç¶Ç∏àÍàÍïbë“Çø

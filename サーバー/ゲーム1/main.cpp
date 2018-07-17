@@ -89,6 +89,7 @@ int main()
 			// •¶š‘—M
 			n = send(sock, buf, 256, 0);
 
+			
 		}
 		
 		if (n < 1) 
