@@ -1,4 +1,4 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: 中間ディレクトリ (x64\Debug\) に別のプロジェクト (ゲーム1.vcxproj) と共有されているファイルが含まれています。これにより、クリーンしてリビルド動作が適切に行われない可能性があります。
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中間ディレクトリ (x64\Debug\) に別のプロジェクト (ゲーム1.vcxproj) と共有されているファイルが含まれています。これにより、クリーンしてリビルド動作が適切に行われない可能性があります。
   サーバー.cpp
 c:\users\1601277\documents\github\test\サーバー\ゲーム1\サーバー.cpp(89): warning C4473: 'scanf_s': 書式文字列として渡された引数が不足しています
   c:\users\1601277\documents\github\test\サーバー\ゲーム1\サーバー.cpp(89): note: プレースホルダーとそのパラメーターには 2 の可変個引数が必要ですが、1 が指定されています。
