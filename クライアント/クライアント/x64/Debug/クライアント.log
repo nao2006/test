@@ -1,3 +1,7 @@
 ﻿  クライアント.cpp
-c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(66): warning C4390: ';': 制御が空の文が見つかりました。意図した記述でしょうか?
+c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(48): warning C4553: '==': 演算子にプログラム上の作用がありません。'=' を意図しましたか?
+c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(77): warning C4473: 'scanf_s': 書式文字列として渡された引数が不足しています
+  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(77): note: プレースホルダーとそのパラメーターには 2 の可変個引数が必要ですが、1 が指定されています。
+  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(77): note: 不足している可変個引数 2 が書式文字列 '%s' に必要です
+  c:\users\1601277\documents\github\test\クライアント\クライアント\クライアント.cpp(77): note: この引数はバッファー サイズとして使用されます
   クライアント.vcxproj -> C:\Users\1601277\Documents\GitHub\test\クライアント\x64\Debug\クライアント.exe
